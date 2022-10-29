@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ClimaService {
 
-  apiKey: string = '022a29ee1801e5829c64f7c296187da5'
+  apiKey: string = 'insert api key'
 
   constructor(private httpClient: HttpClient) {
   }
