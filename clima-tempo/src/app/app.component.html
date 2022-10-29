@@ -1,3 +1,116 @@
-<app-clima></app-clima>
+<div class="pesquisar">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Buscar Cidade" name="cidade" [(ngModel)]="nomeCidade">
+  </form>
+</div>
+
+<div class="container" *ngIf="infoClima">
+  <div class="conteudo-principal">
+    <img src="../assets/img-clima-quente.png" *ngIf="infoClima.main.temp > 15">
+    <img src="../assets/img-clima-frio.jpg" *ngIf="infoClima.main.temp <= 15">
+
+    <div class="clima">
+      <div class="localizacao">{{infoClima.name}}</div>
+      <div class="temperatura">{{infoClima.main.temp | number: '1.0-0'}}°C</div>
+    </div>
+  </div>
+
+  <div class="conteudo-detalhado">
+    <div class="informacoes-titulo">Mais Informações</div>
+    <div class="informacoes">
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="termometro-frio" src="../assets/termometro.svg">
+          <span>min</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          {{infoClima.main.temp_min | number: '1.0-0'}}°C
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="termometro-quente" src="../assets/termometro-quente.svg">
+          <span>max</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          {{infoClima.main.temp_max | number: '1.0-0'}}°C
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="umidade" src="../assets/umidade.svg">
+          <span>umidade</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          {{infoClima.main.humidity | number: '1.0-0'}}%
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="vento" src="../assets/vento.svg">
+          <span>vento</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          {{infoClima.wind.speed | number: '1.0-0'}} km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="conteudo-principal">
+    <img src="../assets/img-clima-quente.png" *ngIf="14 > 15">
+    <img src="../assets/img-clima-frio.jpg" *ngIf="14 <= 15">
+
+    <div class="clima">
+      <div class="localizacao">Santa Maria</div>
+      <div class="temperatura">{{14}}°C</div>
+    </div>
+  </div>
+
+  <div class="conteudo-detalhado">
+    <div class="informacoes-titulo">Mais Informações</div>
+    <div class="informacoes">
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="termometro-frio" src="../assets/termometro.svg">
+          <span>min</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          10°C
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="termometro-quente" src="../assets/termometro-quente.svg">
+          <span>max</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          30°C
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="umidade" src="../assets/umidade.svg">
+          <span>umidade</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          77%
+        </div>
+      </div>
+      <div class="bloco-informacoes">
+        <div class="titulo-bloco-informacoes">
+          <img class="vento" src="../assets/vento.svg">
+          <span>vento</span>
+        </div>
+        <div class="conteudo-bloco-informacoes">
+          11 km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
 
 <router-outlet></router-outlet>
