@@ -6,8 +6,9 @@
 
 <div class="container" *ngIf="infoClima">
   <div class="conteudo-principal">
-    <img src="../assets/img-clima-quente.png" *ngIf="infoClima.main.temp > 15">
-    <img src="../assets/img-clima-frio.jpg" *ngIf="infoClima.main.temp <= 15">
+    <img src="../assets/img-clima-quente.png" *ngIf="infoClima.main.temp >= 30">
+    <img src="../assets/img-clima-ensolarado.jpg" *ngIf="infoClima.main.temp < 30">
+    <img src="../assets/img-clima-frio.jpg" *ngIf="infoClima.main.temp <= 0">
 
     <div class="clima">
       <div class="localizacao">{{infoClima.name}}</div>
